@@ -1,4 +1,4 @@
-rootProject.name = "presenter"
+rootProject.name = "state-presenter-lib"
 
 include(
     ":sample",
