@@ -1,4 +1,4 @@
-package com.statepresenter.buildsrc
+package com.statecontainer.buildsrc
 
 import com.android.build.gradle.BaseExtension
 

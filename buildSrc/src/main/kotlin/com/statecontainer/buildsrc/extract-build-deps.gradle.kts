@@ -1,8 +1,8 @@
-package com.statepresenter.buildsrc
+package com.statecontainer.buildsrc
 
 import java.util.regex.Pattern
 
-val buildSrcPath = "src/main/kotlin/com/statepresenter/buildsrc"
+val buildSrcPath = "src/main/kotlin/com/statecontainer/buildsrc"
 
 val pattern: Pattern = Pattern.compile("\\s*const\\s*val\\s*(\\S*)\\s*=\\s*\"(.*)\"")
 

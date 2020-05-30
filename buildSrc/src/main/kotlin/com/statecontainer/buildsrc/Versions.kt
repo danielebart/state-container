@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package com.statepresenter.buildsrc
+package com.statecontainer.buildsrc
 
 object Versions {
 

@@ -1,13 +1,13 @@
 @file:Suppress("UNCHECKED_CAST")
 
-package com.statepresenter
+package com.statecontainer
 
 import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.savedstate.SavedStateRegistry
 
 internal class AndroidLifecycleStateSaver<S>(
-    presenterKey: String,
+    containerKey: String,
     savedStateRegistry: SavedStateRegistry
 ) :
     StateSaver<S> {
@@ -15,13 +15,13 @@ internal class AndroidLifecycleStateSaver<S>(
     private var state: S? = null
 
     private val stateProvider = SavedStateRegistry.SavedStateProvider {
-        bundleOf(presenterKey to state)
+        bundleOf(containerKey to state)
     }
 
     init {
-        val restoredState: Bundle? = savedStateRegistry.consumeRestoredStateForKey(presenterKey)
-        state = restoredState?.get(presenterKey) as S
-        savedStateRegistry.registerSavedStateProvider(presenterKey, stateProvider)
+        val restoredState: Bundle? = savedStateRegistry.consumeRestoredStateForKey(containerKey)
+        state = restoredState?.get(containerKey) as S
+        savedStateRegistry.registerSavedStateProvider(containerKey, stateProvider)
     }
 
     override fun put(stateToSave: S) {

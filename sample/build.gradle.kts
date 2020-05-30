@@ -1,5 +1,5 @@
-import com.statepresenter.buildsrc.AndroidConfig
-import com.statepresenter.buildsrc.Dependencies
+import com.statecontainer.buildsrc.AndroidConfig
+import com.statecontainer.buildsrc.Dependencies
 
 plugins {
     id("com.android.application")
@@ -24,7 +24,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":state-presenter"))
+    implementation(project(":state-container"))
 
     implementation(Dependencies.kotlinStdLib)
     implementation(Dependencies.appCompat)

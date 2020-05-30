@@ -1,13 +1,13 @@
-import com.statepresenter.buildsrc.AndroidConfig
-import com.statepresenter.buildsrc.Dependencies
+import com.statecontainer.buildsrc.AndroidConfig
+import com.statecontainer.buildsrc.Dependencies
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("com.statepresenter.buildsrc.coverage")
-    id("com.statepresenter.buildsrc.deploy")
+    id("com.statecontainer.buildsrc.coverage")
+    id("com.statecontainer.buildsrc.deploy")
 }
 
 android {

@@ -1,6 +1,6 @@
-rootProject.name = "state-presenter-lib"
+rootProject.name = "state-container-lib"
 
 include(
     ":sample",
-    ":state-presenter"
+    ":state-container"
 )

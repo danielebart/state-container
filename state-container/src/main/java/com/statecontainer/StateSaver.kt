@@ -1,4 +1,4 @@
-package com.statepresenter
+package com.statecontainer
 
 /**
  * Allows to save a object state and retrieve its value after any Android configuration change

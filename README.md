@@ -1,4 +1,4 @@
-# StatePresenter
+# StateContainer
 
 A simple library to handle state saving in presentation components.
 

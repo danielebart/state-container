@@ -1,24 +1,24 @@
-package com.statepresenter.sample
+package com.statecontainer.sample
 
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.statepresenter.StatePresenter
-import com.statepresenter.StateSaver
-import com.statepresenter.providePresenterLazily
+import com.statecontainer.StateContainer
+import com.statecontainer.StateSaver
+import com.statecontainer.provideContainerLazily
 
 class IncrementActivity : AppCompatActivity(R.layout.activity_increment), IncrementContract.View {
 
     private val incrementButton by lazy { findViewById<Button>(R.id.incrementButton) }
-    private val presenter by providePresenterLazily<IncrementPresenter, Int>(savedStateRegistry) { stateSaver ->
+    private val container by provideContainerLazily<IncrementPresenter, Int>(savedStateRegistry) { stateSaver ->
         IncrementPresenter(stateSaver, this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        incrementButton.setOnClickListener { presenter.onIncrementClick() }
-        presenter.start()
+        incrementButton.setOnClickListener { container.onIncrementClick() }
+        container.start()
     }
 
     override fun showToast(text: String) {
@@ -39,7 +39,7 @@ interface IncrementContract {
         fun displayCurrentIncrementValue(value: Int)
     }
 
-    interface Presenter: StatePresenter {
+    interface Container : StateContainer {
 
         fun onIncrementClick()
     }
@@ -48,7 +48,7 @@ interface IncrementContract {
 class IncrementPresenter(
     private val stateSaver: StateSaver<Int>,
     private val view: IncrementContract.View
-) : IncrementContract.Presenter {
+) : IncrementContract.Container {
 
     private val currentState
         get() = stateSaver.get() ?: 0
