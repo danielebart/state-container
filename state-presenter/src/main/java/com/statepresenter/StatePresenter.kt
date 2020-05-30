@@ -1,0 +1,3 @@
+package com.statepresenter
+
+interface StatePresenter
