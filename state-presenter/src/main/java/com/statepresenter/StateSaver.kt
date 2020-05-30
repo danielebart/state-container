@@ -1,3 +1,5 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package com.statepresenter
 
 import android.os.Bundle
@@ -22,5 +24,5 @@ class StateSaver<S>(presenterKey: String, savedStateRegistry: SavedStateRegistry
         state = stateToSave
     }
 
-    fun getOrNull(): S? = state
+    fun get(): S? = state
 }

@@ -51,7 +51,7 @@ class IncrementPresenter(
 ) : IncrementContract.Presenter {
 
     private val currentState
-        get() = stateSaver.getOrNull() ?: 0
+        get() = stateSaver.get() ?: 0
 
     fun start() {
         view.showToast("hello! current state is: $currentState")
