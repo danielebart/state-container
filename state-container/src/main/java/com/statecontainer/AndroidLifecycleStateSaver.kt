@@ -9,11 +9,9 @@ import androidx.savedstate.SavedStateRegistry
 internal class AndroidLifecycleStateSaver<S>(
     containerKey: String,
     savedStateRegistry: SavedStateRegistry
-) :
-    StateSaver<S> {
+) : StateSaver<S> {
 
     private var state: S? = null
-
     private val stateProvider = SavedStateRegistry.SavedStateProvider {
         bundleOf(containerKey to state)
     }
