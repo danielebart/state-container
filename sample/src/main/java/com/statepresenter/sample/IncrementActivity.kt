@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.statepresenter.AndroidLifecycleStateSaver
 import com.statepresenter.StatePresenter
+import com.statepresenter.StateSaver
 import com.statepresenter.providePresenterLazily
 
 class IncrementActivity : AppCompatActivity(R.layout.activity_increment), IncrementContract.View {
@@ -46,7 +46,7 @@ interface IncrementContract {
 }
 
 class IncrementPresenter(
-    private val stateSaver: AndroidLifecycleStateSaver<Int>,
+    private val stateSaver: StateSaver<Int>,
     private val view: IncrementContract.View
 ) : IncrementContract.Presenter {
 
