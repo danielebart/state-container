@@ -42,7 +42,7 @@ dependencies {
     implementation(Dependencies.kotlinStdLib)
     implementation(Dependencies.appCompat)
     implementation(Dependencies.coreKtx)
-    implementation("androidx.savedstate:savedstate:1.0.0")
+    implementation(Dependencies.savedState)
 
     testImplementation(Dependencies.junit)
 
