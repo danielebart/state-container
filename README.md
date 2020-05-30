@@ -1,6 +1,6 @@
-# Presenter
+# StatePresenter
 
-WIP
+A simple library to handle state saving in presentation components.
 
 ## License
 ```
