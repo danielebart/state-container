@@ -1,1 +1,0 @@
--keepclassmembers class * implements com.statepresenter.routes.AbstractRoute { *; }
