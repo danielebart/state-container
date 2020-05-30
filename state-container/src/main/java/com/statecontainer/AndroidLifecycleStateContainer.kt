@@ -6,10 +6,10 @@ import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.savedstate.SavedStateRegistry
 
-internal class AndroidLifecycleStateSaver<S>(
+internal class AndroidLifecycleStateContainer<S>(
     containerKey: String,
     savedStateRegistry: SavedStateRegistry
-) : StateSaver<S> {
+) : StateContainer<S> {
 
     private var state: S? = null
     private val stateProvider = SavedStateRegistry.SavedStateProvider {

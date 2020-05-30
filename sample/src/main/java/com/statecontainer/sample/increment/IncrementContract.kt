@@ -1,7 +1,5 @@
 package com.statecontainer.sample.increment
 
-import com.statecontainer.StateContainer
-
 interface IncrementContract {
 
     interface View {
@@ -11,7 +9,7 @@ interface IncrementContract {
         fun displayCurrentIncrementValue(value: Int)
     }
 
-    interface Container : StateContainer {
+    interface Container {
 
         fun onIncrementClick()
     }

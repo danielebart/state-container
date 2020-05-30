@@ -1,14 +1,14 @@
 package com.statecontainer.sample.increment
 
-import com.statecontainer.StateSaver
+import com.statecontainer.StateContainer
 
 class IncrementPresenter(
-    private val stateSaver: StateSaver<Int>,
+    private val stateContainer: StateContainer<Int>,
     private val view: IncrementContract.View
 ) : IncrementContract.Container {
 
     private val currentState
-        get() = stateSaver.get() ?: 0
+        get() = stateContainer.get() ?: 0
 
     fun start() {
         view.showToast("hello! current state is: $currentState")
@@ -16,7 +16,7 @@ class IncrementPresenter(
     }
 
     override fun onIncrementClick() {
-        stateSaver.put(currentState + 1)
+        stateContainer.put(currentState + 1)
         view.displayCurrentIncrementValue(currentState)
     }
 }

@@ -4,21 +4,18 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.statecontainer.provideContainerLazily
+import com.statecontainer.createStateContainer
 import com.statecontainer.sample.R
 
-class IncrementActivity : AppCompatActivity(R.layout.activity_increment),
-    IncrementContract.View {
+class IncrementActivity : AppCompatActivity(R.layout.activity_increment), IncrementContract.View {
 
     private val incrementButton by lazy { findViewById<Button>(R.id.incrementButton) }
-    private val container by provideContainerLazily<IncrementPresenter, Int>(savedStateRegistry) { stateSaver ->
-        IncrementPresenter(stateSaver, this)
-    }
+    private val presenter by lazy { IncrementPresenter(createStateContainer(), this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        incrementButton.setOnClickListener { container.onIncrementClick() }
-        container.start()
+        incrementButton.setOnClickListener { presenter.onIncrementClick() }
+        presenter.start()
     }
 
     override fun showToast(text: String) {
