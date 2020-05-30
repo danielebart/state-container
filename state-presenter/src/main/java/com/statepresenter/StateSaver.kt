@@ -1,28 +1,20 @@
-@file:Suppress("UNCHECKED_CAST")
-
 package com.statepresenter
 
-import android.os.Bundle
-import androidx.core.os.bundleOf
-import androidx.savedstate.SavedStateRegistry
+/**
+ * Allows to save a object state and retrieve its value after any Android configuration change
+ * or process death. Due to platform limitations, the state object MUST be a "bundable" object,
+ * this means that the state should be a primitive, Parcelable, Serializable or any object which
+ * can be added to a Bundle object.
+ */
+interface StateSaver<S> {
 
-class StateSaver<S>(presenterKey: String, savedStateRegistry: SavedStateRegistry) {
+    /**
+     * Put in the StateSaver a new state to save.
+     */
+    fun put(stateToSave: S)
 
-    private var state: S? = null
-
-    private val stateProvider = SavedStateRegistry.SavedStateProvider {
-        bundleOf(presenterKey to state)
-    }
-
-    init {
-        val restoredState: Bundle? = savedStateRegistry.consumeRestoredStateForKey(presenterKey)
-        state = restoredState?.get(presenterKey) as S
-        savedStateRegistry.registerSavedStateProvider(presenterKey, stateProvider)
-    }
-
-    fun put(stateToSave: S) {
-        state = stateToSave
-    }
-
-    fun get(): S? = state
+    /**
+     * Return the current saved state or null if no state was saved before.
+     */
+    fun get(): S?
 }
