@@ -20,3 +20,15 @@ class IncrementPresenter(
         view.displayCurrentIncrementValue(currentState)
     }
 }
+
+class FooPresenter(
+    private val stateContainer: StateContainer<Foo>
+)
+
+class Foo
+
+class Foo2Presenter(
+    private val stateContainer: StateContainer<Array<Foo>>
+)
+
+//class Foo
