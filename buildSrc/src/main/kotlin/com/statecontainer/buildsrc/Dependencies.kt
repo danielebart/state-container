@@ -6,6 +6,8 @@ object Dependencies {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
     const val savedState = "androidx.savedstate:savedstate:${Versions.savedState}"
+    const val lintApi = "com.android.tools.lint:lint-api:${Versions.lint}"
+    const val lintChecks = "com.android.tools.lint:lint-checks:${Versions.lint}"
 
     // testing
     const val testCore = "androidx.test:core:${Versions.testCore}"

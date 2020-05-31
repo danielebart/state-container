@@ -8,6 +8,7 @@ plugins {
     id("kotlin-android")
     id("com.statecontainer.buildsrc.coverage")
     id("com.statecontainer.buildsrc.deploy")
+    id("kotlin-kapt")
 }
 
 android {
@@ -36,6 +37,9 @@ android {
     lintOptions {
         isWarningsAsErrors = true
     }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -49,4 +53,6 @@ dependencies {
     androidTestImplementation(Dependencies.testCore)
     androidTestImplementation(Dependencies.espressoCore)
     androidTestImplementation(Dependencies.fragmentTesting)
+
+    lintPublish(project(":state-container-lint"))
 }
